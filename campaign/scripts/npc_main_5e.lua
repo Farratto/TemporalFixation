@@ -4,9 +4,7 @@
 -- luacheck: globals update
 
 function onInit()
-	if super and super.onInit then
-		super.onInit();
-	end
+	if super and super.onInit then super.onInit() end
 
 	update();
 end

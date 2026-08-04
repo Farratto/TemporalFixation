@@ -1,5 +1,5 @@
 ## Initiative Nanny
-**Current Version**: ~dev_version~ \
+**Current Version**: ~v-dev~ \
 **Updated**: ~date~
 
 Uses combat tracker effects to to set initiative.  This is the rebranding of Temporal Fixation by MeAndUnique, now maintained by Farratto.
@@ -30,6 +30,7 @@ SmiteWorks owns rights to code sections copied from their rulesets by permission
 
 ### Change Log
 
+* v1.1.1: FIXED: Using restricted CT display option was defeating the extension.
 * v1.1.0: FIXED: not using the 2024 monster init stat. Obsolete inititive box removed
 * v1.0.9: Rebranding of Temporal Fixation to Initiative Nanny by Farratto
 * v1.0.8: Problem with new native init swapping. FIXED

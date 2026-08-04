@@ -4,13 +4,13 @@
 	attribution and copyright information.
 -->
 <root release="3.0" version="3">
+	<announcement text="Initiative Nanny ~v1.1.1-dev~ authored by MeAndUnique and maintained by Farratto." font="emotefont" icon="InitNannyIco" />
 	<properties>
 		<name>Feature: Initiative Nanny</name>
-		<version>~dev_version~</version>
+		<version>~v-dev~</version>
 		<author>MeAndUnique</author>
 		<description>Lets you sink your teeth in to initiative.</description>
 	</properties>
-
 	<base>
 		<script name="ActionInitTF" file="scripts/manager_action_init_tf_5e.lua" ruleset="5E" />
 		<script name="CombatManagerTF" file="scripts/manager_combat_tf.lua" />
@@ -25,13 +25,11 @@
 		<script name="PowerUpTF">
 			function onInit()
 				if PowerUp then
-					PowerUp.registerExtension("Initiative Nanny", "~dev_version~", {
-						['message'] = "~dev_version~\~update_notes~"
+					PowerUp.registerExtension("Initiative Nanny", "~v-dev~", {
+						['message'] = "~v-dev~: ~update_notes~"
 					});
 				end
 			end
 		</script>
 	</base>
-
-	<announcement text="Initiative Nanny ~dev_version~ authored by MeAndUnique and maintained by Farratto." font="emotefont" icon="InitNannyIco" />
 </root>

@@ -11,10 +11,6 @@ local isActorToSkipTurnOriginal;
 local onTurnEndEventOriginal;
 local rollTypeInit;
 local rollStandardEntryInitOriginal;
---local rollEntryInitOriginal;
-
---local tRerolledCombatants;
-
 fperformInitSwap = '';
 rollTypeInitOriginal = '';
 
@@ -44,9 +40,7 @@ function onInit()
 end
 
 function customSort(node1, node2, tVisited)
-	local bHost = Session.IsHost;
-	local sOptCTSI = OptionsManager.getOption("CTSI");
-	if (not bHost) or (sOptCTSI ~= "on") then
+	if OptionsManager.isOption('CTSI', 'off') and not Session.IsHost then
 		-- Not much to do if initiative isn't being shown anyway.
 		return customSortOriginal(node1, node2);
 	end
@@ -244,7 +238,7 @@ function rollStandardEntryInit(tInit)
 		local rActor = ActorManager.resolveActor(tInit.nodeEntry);
 		local bSecret = CombatManager.isCTHidden(tInit.nodeEntry);
 		ActionInit.performRoll(nil, rActor, bSecret);
-	elseif CombatManagerTF.getInitOverride(tInit.nodeEntry) then
+	elseif getInitOverride(tInit.nodeEntry) then
 		local sFormat = Interface.getString("message_ovderridden_init");
 		local rActor = ActorManager.resolveActor(tInit.nodeEntry);
 		local sMsg = string.format(sFormat, rActor.sName);
@@ -263,7 +257,6 @@ end
 
 function onCombatantInitiativeUpdated(nodeInit)
 	local nNewInit = nodeInit.getValue();
-	--if newInit == -10000 then
 	if nNewInit == -10000 then
 		return; -- This indicates a temporary "clearing" before setting the real value.
 	end
